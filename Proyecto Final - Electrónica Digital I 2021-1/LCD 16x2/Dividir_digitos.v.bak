@@ -1,0 +1,103 @@
+module Dividir_digitos (clk, tiempo, mostrar_cen, mostrar_dec, mostrar_uni);
+
+input clk;
+input tiempo;
+
+output reg [8:0] mostrar_cen = 0;
+output reg [8:0] mostrar_dec = 0;
+output reg [8:0] mostrar_uni = 0;
+		
+reg [3:0] digito_cen = 0;
+reg [3:0] digito_dec = 0;
+reg [3:0] digito_uni = 0;
+
+reg [2:0] status;
+reg [3:0] contador;
+
+parameter CENTENAS = 'b00,
+			 DECENAS = 'b01,
+          UNIDADES = 'b10;
+
+always(posedge clk) begin
+
+	contador <= tiempo;
+
+	case(status)
+
+		CENTENAS: begin
+			
+			if(contador > 99) begin
+				contador <= contador - 100;
+				digito_cen <= digito_cen + 1;
+			end
+			
+			else if(contador < 100) begin
+				status <= DECENAS;
+			end
+			
+		end
+		
+		DECENAS: begin
+			
+			if(contador > 9) begin
+				contador <= contador - 10;
+				digito_dec <= digito_dec + 1;
+			end
+			
+			else if(contador < 10) begin
+				status <= UNIDADES;
+			end
+			
+		end
+		
+		UNIDADES: begin
+			
+			digito_uni <= contador;
+			status <= CENTENAS;
+			
+			case(digito_cen)
+				0: mostrar_cen <= 9'h130;
+				1: mostrar_cen <= 9'h131;
+				2: mostrar_cen <= 9'h132;
+				3: mostrar_cen <= 9'h133;
+				4: mostrar_cen <= 9'h134;
+				5: mostrar_cen <= 9'h135;
+				6: mostrar_cen <= 9'h136;
+				7: mostrar_cen <= 9'h137;
+				8: mostrar_cen <= 9'h138;
+				9: mostrar_cen <= 9'h139;				
+			endcase
+			
+			case(digito_dec)
+				0: mostrar_dec <= 9'h130;
+				1: mostrar_dec <= 9'h131;
+				2: mostrar_dec <= 9'h132;
+				3: mostrar_dec <= 9'h133;
+				4: mostrar_dec <= 9'h134;
+				5: mostrar_dec <= 9'h135;
+				6: mostrar_dec <= 9'h136;
+				7: mostrar_dec <= 9'h137;
+				8: mostrar_dec <= 9'h138;
+				9: mostrar_dec <= 9'h139;				
+			endcase
+
+			case(digito_uni)
+				0: mostrar_uni <= 9'h130;
+				1: mostrar_uni <= 9'h131;
+				2: mostrar_uni <= 9'h132;
+				3: mostrar_uni <= 9'h133;
+				4: mostrar_uni <= 9'h134;
+				5: mostrar_uni <= 9'h135;
+				6: mostrar_uni <= 9'h136;
+				7: mostrar_uni <= 9'h137;
+				8: mostrar_uni <= 9'h138;
+				9: mostrar_uni <= 9'h139;				
+			endcase			
+			
+		end
+
+	endcase	
+	
+end	
+	
+end module 
