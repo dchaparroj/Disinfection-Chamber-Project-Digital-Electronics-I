@@ -1,3 +1,0 @@
-# Camara de desinfección
-
-Texto
