@@ -1,7 +1,3 @@
-# Neo-Ligth
-neo ligth es un proyecto de electronica digital descrito en el lenguaje Verilog y implementeado en una FPGA Cyclone 4 de intel, 
-el proyecto consiste en una alarma luminica programable por bluetooth que se apaga apenas se deja el cuarto lo que asegura el despertar de la persona.
+# Camara de desinfección
 
-Link de desmostracion del proyecto ensamblado en Youtube: https://youtu.be/x_OZTIZxotM
-
-Link de documento que justifica el proyecto, y explica cada uno de los modulos:  https://drive.google.com/file/d/1SFHF790jpPTALLVg7CbJMmcI9PAo5UEg/view?usp=sharing
+Texto
