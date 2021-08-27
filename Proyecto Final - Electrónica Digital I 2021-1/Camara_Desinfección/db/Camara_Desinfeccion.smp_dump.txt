@@ -1,0 +1,36 @@
+
+State Machine - |Camara_Desinfeccion|LCD_Top:lcd|inorganico_time
+Name inorganico_time.01 
+inorganico_time.00 0 
+inorganico_time.01 1 
+
+State Machine - |Camara_Desinfeccion|LCD_Top:lcd|organico_time
+Name organico_time.01 
+organico_time.00 0 
+organico_time.01 1 
+
+State Machine - |Camara_Desinfeccion|LCD_Top:lcd|status
+Name status.ABRIR status.FINALIZO status.INORGANICO status.ORGANICO status.SELECCION status.ADVERTENCIA status.INGRESAR status.INICIO status.CERRAR 
+status.INICIO 0 0 0 0 0 0 0 0 0 
+status.INGRESAR 0 0 0 0 0 0 1 1 0 
+status.ADVERTENCIA 0 0 0 0 0 1 0 1 0 
+status.SELECCION 0 0 0 0 1 0 0 1 0 
+status.ORGANICO 0 0 0 1 0 0 0 1 0 
+status.INORGANICO 0 0 1 0 0 0 0 1 0 
+status.FINALIZO 0 1 0 0 0 0 0 1 0 
+status.ABRIR 1 0 0 0 0 0 0 1 0 
+status.CERRAR 0 0 0 0 0 0 0 1 1 
+
+State Machine - |Camara_Desinfeccion|LCD_Top:lcd|LCD_TEST:u5|mLCD_ST
+Name mLCD_ST.000011 mLCD_ST.000010 mLCD_ST.000001 mLCD_ST.000000 
+mLCD_ST.000000 0 0 0 0 
+mLCD_ST.000001 0 0 1 1 
+mLCD_ST.000010 0 1 0 1 
+mLCD_ST.000011 1 0 0 1 
+
+State Machine - |Camara_Desinfeccion|LCD_Top:lcd|LCD_TEST:u5|LCD_Controller:u0|ST
+Name ST.11 ST.10 ST.01 ST.00 
+ST.00 0 0 0 0 
+ST.01 0 0 1 1 
+ST.10 0 1 0 1 
+ST.11 1 0 0 1 
